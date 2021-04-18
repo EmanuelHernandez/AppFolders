@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="row justify-content-center pt-4">
+    <div class="col-md-8">
+        <H1><a href="/">../Folders</a></H1>
+    </div>
+</div>
+
+<div class="row justify-content-center pt-4">
+    <div class="col-md-8">
+        <h1>Folder : {{nametable}}</h1>
+    </div>
+</div>
+    <div class="row justify-content-center pt-4">
+        <div class="col-md-8">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>{{ message }}</p>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+    </div>
+
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+        <div class="d-flex justify-content-center">
+            <div class="card card-body">
+                <form action="/add_item/{{nametable}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="fullname" placeholder="FullName" class="form-control">
+                    </div>
+                    <div class="row justify-content-center pt-4">
+                        <div class="col-4 text-center">
+                            <button type="submit" class="btn btn-primary btn-default">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <table class="table table-sm table-strupped ">
+            <thead>
+                <tr>
+                    <td>Nombre de items</td>
+                    <td>Operaciones</td>
+                </tr>
+            </thead>
+            <tbody>
+        
+                {% for item in items %}
+                    <tr>
+                        <td>
+                            <input type="checkbox"  >  
+                            {{item[1]}}
+                        </td>
+                        <td> 
+                            <a href="/edit/{{nametable}}/{{item.0}}" class="btn btn-secondary" style="width: 9rem">Modificar Items</a>
+                            <a href="/delete/{{nametable}}/{{item.0}} "class="btn btn-danger" style="width: 9rem">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

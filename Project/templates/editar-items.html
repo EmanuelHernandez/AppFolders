@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<div class="row justify-content-center pt-4">
+    <div class="col-8">
+        <div class="d-flex justify-content-center">
+            <div class="card card-body">
+                <form action="/modificar/{{nametable}}/{{items[0]}}" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="fullname" class="form-control" placeholder="FullName" value="{{items[1]}}">
+                    </div>
+                    <div class="row justify-content-center pt-4">
+                        <div class="col-6 text-center">
+                            <button type="submit" class="btn btn-primary btn-default">
+                                Guardar
+                            </button>
+                        </div>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}

@@ -1,3 +1,8 @@
+
+-- Instrucciones
+
+  Debido a que no pude configurar el script para la configuracion de la app. Antes de ejecutar el app, se debe crear una base de datos dentro de localhost/phpmyadmin y la misma se debe llamar "proyecto". 
+
 # AppFolders
 
 RunTimes
@@ -20,3 +25,4 @@ HTML 5
 Boostrap4
 phpMyAdmin 5.1.0
 Jinja2 2.11.2
+
